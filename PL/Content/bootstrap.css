@@ -27,6 +27,13 @@ section,
 summary {
   display: block;
 }
+
+.dbg {
+    width: 100px;
+    height: 100px;
+    margin: 20px auto;
+    background-color: green;
+}
 audio,
 canvas,
 progress,

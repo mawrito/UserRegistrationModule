@@ -124,8 +124,11 @@
     <Content Include="Content\Catalogues\Dolphins\9.jpg" />
     <Content Include="Content\Darkly.css" />
     <Content Include="Content\Lux.css" />
+    <Content Include="Content\Pulse.css" />
     <Content Include="Content\United.css" />
     <Content Include="Email.aspx" />
+    <Content Include="Scripts\securityValidator.js" />
+    <Content Include="Scripts\themes.js" />
     <Content Include="Scripts\validator.js" />
     <Content Include="UserRegistration.aspx" />
     <Content Include="ControlPanel.aspx" />
@@ -146,6 +149,10 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="SecurityValidation.aspx" />
+    <Content Include="package.json" />
+    <Content Include="SASS\style.scss" />
+    <Content Include="App_Themes\Blue\Blue.skin" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -153,7 +160,6 @@
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
-    <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
     <Content Include="Scripts\WebForms\Focus.js" />
     <Content Include="Scripts\WebForms\GridView.js" />
@@ -178,7 +184,6 @@
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
-    <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
@@ -241,6 +246,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityValidation.aspx.cs">
+      <DependentUpon>SecurityValidation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SecurityValidation.aspx.designer.cs">
+      <DependentUpon>SecurityValidation.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

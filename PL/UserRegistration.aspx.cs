@@ -17,39 +17,52 @@ namespace PL
 {
     public partial class UserRegistration : Page
     {
+       
         protected void Page_Load(object sender, EventArgs e)
         {
             userDemo();
+   
         }
 
         protected void Create_Click(object sender, EventArgs e)
         {
-            int userId = 0;
-            String code = generateCode();
-            DateTime today = DateTime.Today;
-            
-            User u = new User(txtFirstName.Text.Trim(), txtLastName.Text.Trim(), txtLastName2.Text.Trim(), txtEmail.Text.Trim(), ddlCountry.SelectedValue, txtUsername.Text.Trim(), txtPassword.Text.Trim(), Convert.ToInt32(txtAge.Text.Trim()), Convert.ToInt32(ddlExpiration.SelectedValue), today, false, code);
-
-            userId = Business.AddUser(u);
-
-            switch (userId)
+            try
             {
-                case -1:
-                    errorMessage.Text = "User Could not be created, Username is already in use";
-                    break;
-                case -2:
-                    errorMessage.Text = "User Could not be created, Email Address is already in use";
-                    break;
-                default:
-                    errorMessage.Text = "User registered, Confirm email to activate account";
-                    SendActivationEmail(userId, code);
-                    break;
+                int userId = 0;
+                String code = generateCode();
+                DateTime today = DateTime.Today;
+
+                User u = new User(txtFirstName.Text.Trim(), txtLastName.Text.Trim(), txtLastName2.Text.Trim(), txtEmail.Text.Trim(), ddlCountry.SelectedValue, txtUsername.Text.Trim(), txtPassword.Text.Trim(), Convert.ToInt32(txtAge.Text.Trim()), Convert.ToInt32(ddlExpiration.SelectedValue), today, false, code);
+
+                userId = Business.AddUser(u);
+
+                switch (userId)
+                {
+                    case -1:
+                        errorMessage.Text = "User Could not be created, Username is already in use";
+                        break;
+                    case -2:
+                        errorMessage.Text = "User Could not be created, Email Address is already in use";
+                        break;
+                    default:
+                        errorMessage.Text = "User registered, Confirm email to activate account";
+                        SendActivationEmail(userId, code);
+                        break;
+                }
+                ClientScript.RegisterStartupScript(GetType(), "alert", "alert('" + errorMessage.Text + "');", true);
+                cleanFields();
             }
-            ClientScript.RegisterStartupScript(GetType(), "alert", "alert('" + errorMessage.Text + "');", true);
-            cleanFields();
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
+            
 
         }
 
+     
         protected void userDemo()
         {
             txtFirstName.Text = "Mario";
@@ -131,10 +144,9 @@ namespace PL
             txtUsername.Text = String.Empty;
             txtPassword.Text = String.Empty;
             txtAge.Text = String.Empty;
-            
+
         }
 
-
-        
+       
     }
 }

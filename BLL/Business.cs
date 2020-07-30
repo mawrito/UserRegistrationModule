@@ -96,33 +96,5 @@ namespace BLL
 
         
 
-
-        #region METODO INICIAL
-        //public static void SendEmail(User user)
-        //{
-        //    MailMessage mailMessage = new MailMessage("mariochavessolano@gmail.com", "mariochavessolano@gmail.com");
-        //    mailMessage.Subject = "Confirm your User account registration";
-        //    string activationCode = Guid.NewGuid().ToString();
-        //    string body = "Hello " + user.FirstName + ",";
-        //    body += "<br /><br />Please click the following link to activate your account";
-            
-        //        body += "<br /><a href = '" + Request.Url.AbsoluteUri.Replace("CS.aspx", "CS_Activation.aspx?ActivationCode=" + activationCode) + "'>Click here to activate your account.</a>";
-        //    body += "<br /><br />Thanks";
-        //    mailMessage.Body = body;
-        //    mailMessage.IsBodyHtml = true;
-
-        //    SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
-        //    smtpClient.Credentials = new System.Net.NetworkCredential()
-        //    {
-        //        UserName = "mariochavessolano@gmail.com",
-        //        Password = "Limitless2018!"
-        //    };
-        //    smtpClient.EnableSsl = true;
-            
-        //    smtpClient.Send(mailMessage);
-        //}
-
-        
-        #endregion
     }
 }
