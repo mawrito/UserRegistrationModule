@@ -8,61 +8,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> - UserRegistrationModule</title>
     <script src="Scripts/validator.js"></script>
+    <link id="stylesheet" href="Content/United.css" rel="stylesheet" title="United"/>
+    <link href="Content/Lux.css" rel="alternate stylesheet" title="Lux"/>
+    <link href="Content/Pulse.css" rel="alternate stylesheet" title="Pulse"/>
+    <script src="Scripts/styleswitcher.js"></script>
 
-    <link id="stylesheet" rel="stylesheet" type="text/css" href="Content/United.css" />
+        <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
 
-    <script>
-        function setStyleSheet(url) {
-            var stylesheet = document.getElementById("stylesheet");
-            stylesheet.setAttribute('href', url);
-        }
-    </script>
-
-    <script>            
-        function createjscssfile(filename, filetype) {
-            if (filetype == "js") { //if filename is a external JavaScript file
-                var fileref = document.createElement('script')
-                fileref.setAttribute("type", "text/javascript")
-                fileref.setAttribute("src", filename)
-            }
-            else if (filetype == "css") { //if filename is an external CSS file
-                var fileref = document.createElement("link")
-                fileref.setAttribute("rel", "stylesheet")
-                fileref.setAttribute("id", "stylesheet")
-                fileref.setAttribute("type", "text/css")
-                fileref.setAttribute("href", filename)
-            }
-            return fileref
-        }
-
-        function replacejscssfile(oldfilename, newfilename, filetype) {
-            var targetelement = (filetype == "js") ? "script" : (filetype == "css") ? "link" : "none" //determine element type to create nodelist using
-            var targetattr = (filetype == "js") ? "src" : (filetype == "css") ? "href" : "none" //determine corresponding attribute to test for
-            var allsuspects = document.getElementsByTagName(targetelement)
-            for (var i = allsuspects.length; i >= 0; i--) { //search backwards within nodelist for matching elements to remove
-                if (allsuspects[i] && allsuspects[i].getAttribute(targetattr) != null && allsuspects[i].getAttribute(targetattr).indexOf(oldfilename) != -1) {
-                    var newelement = createjscssfile(newfilename, filetype)
-                    allsuspects[i].parentNode.replaceChild(newelement, allsuspects[i])
-                }
-            }
-        }
-
-        replacejscssfile("oldscript.js", "newscript.js", "js") //Replace all occurences of "oldscript.js" with "newscript.js"
-        replacejscssfile("oldstyle.css", "newstyle", "css") //Replace all occurences "oldstyle.css" with "newstyle.css"
-    </script>
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 </head>
 <body>
     <form runat="server">
-        <%--     <asp:ScriptManager runat="server">
-          
-        </asp:ScriptManager>--%>
-
+        <asp:ScriptManager runat="server">
+                        <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="font-size: large">
             <a class="navbar-brand" href="Default.aspx" style="font-size: larger">UserManagementModule</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
@@ -71,17 +54,13 @@
                     <li class="nav-item">
                         <a class="nav-link" href="ControlPanel.aspx">Control Panel</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
                 </ul>
             </div>
         </nav>
-
         <div class="container body-content">
-
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
+            <hr />
             <footer>
                 <p>&copy; <%: DateTime.Now.Year %> - UserRegistrationModule</p>
             </footer>

@@ -1,67 +1,46 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SecurityValidation.aspx.cs" Inherits="PL.SecurityValidation" %>
+﻿<%@ Page Title="Security Validation" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SecurityValidation.aspx.cs" Inherits="PL.SecurityValidation" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <script src="Scripts/securityValidator.js"></script>
-    <h1>Security Validation</h1>
-        <p class="lead">Prior to the user registration we need to verify you are a human fpr security purposes, in order to do that, please click 3 images containing:</p>
+    <br />
+    <br />
+    <h1><%: Title %></h1>
+        <p class="lead">Prior to the user registration for security purposes, we need to verify you are a human. In order to do that, please click 3 images containing:</p>
         <p id="Catalogo"></p>
-        <p>Clicks: <a id="clicks">0</a></p>
-    <div>
+        <p style="display:none">Clicks: <a id="clicks">0</a></p>
+    <div >
         <table>
             <tr>
                 <td style="width: 100px">
-                    <img style="width: 100px; height: 100px;" src="Content/Catalogues/Dolphins/16.jpg" />
+                    <img id="4" style="width: 100px; height: 100px;" src="Content/Catalogues/Dolphins/4.jpg" />
                 </td>
                 <td style="width: 100px">
-                    <img style="width: 100px; height: 100px;" src="Content/Catalogues/Dolphins/12.jpg" />
+                    <img id="5" style="width: 100px; height: 100px;" src="Content/Catalogues/Dolphins/5.jpg" />
                 </td>
                 <td style="width: 100px">
-                    <img style="width: 100px; height: 100px;" src="Content/Catalogues/Dolphins/8.jpg" />
-                </td>
-                <td style="width: 100px">
-                    <img style="width: 100px; height: 100px;" src="Content/Catalogues/Dolphins/4.jpg" />
+                    <img id="3" style="width: 100px; height: 100px;" onclick="onClick()" src="Content/Catalogues/Dolphins/3.jpg" />
                 </td>
             </tr>
             <tr>
                 <td style="width: 100px">
-                    <img style="width: 100px; height: 100px;" src="Content/Catalogues/Dolphins/15.jpg" />
+                    <img id="2" style="width: 100px; height: 100px;" onclick="onClick()" src="Content/Catalogues/Dolphins/2.jpg" />
                 </td>
                 <td style="width: 100px">
-                    <img style="width: 100px; height: 100px;" src="Content/Catalogues/Dolphins/11.jpg" />
+                    <img  id="7" style="width: 100px; height: 100px;" src="Content/Catalogues/Dolphins/7.jpg" />
                 </td>
                 <td style="width: 100px">
-                    <img style="width: 100px; height: 100px;" src="Content/Catalogues/Dolphins/7.jpg" />
-                </td>
-                <td style="width: 100px">
-                    <img style="width: 100px; height: 100px;" onclick="onClick()" src="Content/Catalogues/Dolphins/3.jpg" />
+                    <img  id="6" style="width: 100px; height: 100px;" src="Content/Catalogues/Dolphins/6.jpg" />
                 </td>
             </tr>
             <tr>
                 <td style="width: 100px">
-                    <img style="width: 100px; height: 100px;" onclick="onClick()" src="Content/Catalogues/Dolphins/2.jpg" />
+                    <img  id="8" style="width: 100px; height: 100px;" src="Content/Catalogues/Dolphins/8.jpg" />
                 </td>
                 <td style="width: 100px">
-                    <img style="width: 100px; height: 100px;" src="Content/Catalogues/Dolphins/10.jpg" />
+                    <img  id="9" style="width: 100px; height: 100px;" src="Content/Catalogues/Dolphins/9.jpg" />
                 </td>
                 <td style="width: 100px">
-                    <img style="width: 100px; height: 100px;" src="Content/Catalogues/Dolphins/6.jpg" />
-                </td>
-                <td style="width: 100px">
-                    <img style="width: 100px; height: 100px;" src="Content/Catalogues/Dolphins/14.jpg" />
-                </td>
-            </tr>
-            <tr>
-                <td style="width: 100px">
-                    <img style="width: 100px; height: 100px;" src="Content/Catalogues/Dolphins/13.jpg" />
-                </td>
-                <td style="width: 100px">
-                    <img style="width: 100px; height: 100px;" src="Content/Catalogues/Dolphins/9.jpg" />
-                </td>
-                <td style="width: 100px">
-                    <img style="width: 100px; height: 100px;" onclick="onClick()" src="Content/Catalogues/Dolphins/1.jpg" />
-                </td>
-                <td style="width: 100px">
-                    <img style="width: 100px; height: 100px;" src="Content/Catalogues/Dolphins/5.jpg" />
+                    <img  id="1" style="width: 100px; height: 100px;" onclick="onClick()" src="Content/Catalogues/Dolphins/1.jpg" />
                 </td>
             </tr>
             <tr>
@@ -70,7 +49,9 @@
         <br />
         <br />
 
-        <input class="btn btn-primary btn-lg btn-block" style="display: none; font-size:large" id="Create" type="button" onclick="location.href = 'UserRegistration.aspx';" value="Create Account" />
+        <input class="btn btn-primary" style="display: none; font-size:large" id="Create" type="button" onclick="location.href = 'UserRegistration.aspx';" value="Create Account" />
 
     </div>
+
+   
 </asp:Content>

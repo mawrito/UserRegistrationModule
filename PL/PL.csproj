@@ -106,14 +106,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Activation.aspx" />
+    <Content Include="Catalogue.aspx" />
     <Content Include="Content\Catalogues\Dolphins\1.jpg" />
-    <Content Include="Content\Catalogues\Dolphins\10.jpg" />
-    <Content Include="Content\Catalogues\Dolphins\11.jpg" />
-    <Content Include="Content\Catalogues\Dolphins\12.jpg" />
-    <Content Include="Content\Catalogues\Dolphins\13.jpg" />
-    <Content Include="Content\Catalogues\Dolphins\14.jpg" />
-    <Content Include="Content\Catalogues\Dolphins\15.jpg" />
-    <Content Include="Content\Catalogues\Dolphins\16.jpg" />
     <Content Include="Content\Catalogues\Dolphins\2.jpg" />
     <Content Include="Content\Catalogues\Dolphins\3.jpg" />
     <Content Include="Content\Catalogues\Dolphins\4.jpg" />
@@ -122,13 +116,20 @@
     <Content Include="Content\Catalogues\Dolphins\7.jpg" />
     <Content Include="Content\Catalogues\Dolphins\8.jpg" />
     <Content Include="Content\Catalogues\Dolphins\9.jpg" />
-    <Content Include="Content\Darkly.css" />
+    <Content Include="Content\Catalogues\Food\1.jpg" />
+    <Content Include="Content\Catalogues\Food\2.jpg" />
+    <Content Include="Content\Catalogues\Food\3.jpg" />
+    <Content Include="Content\Catalogues\Food\4.jpg" />
+    <Content Include="Content\Catalogues\Food\5.jpg" />
+    <Content Include="Content\Catalogues\Food\6.jpg" />
+    <Content Include="Content\Catalogues\Food\7.jpg" />
+    <Content Include="Content\Catalogues\Food\8.jpg" />
+    <Content Include="Content\Catalogues\Food\9.jpg" />
     <Content Include="Content\Lux.css" />
     <Content Include="Content\Pulse.css" />
     <Content Include="Content\United.css" />
     <Content Include="Email.aspx" />
-    <Content Include="Scripts\securityValidator.js" />
-    <Content Include="Scripts\themes.js" />
+    <Content Include="Scripts\styleswitcher.js" />
     <Content Include="Scripts\validator.js" />
     <Content Include="UserRegistration.aspx" />
     <Content Include="ControlPanel.aspx" />
@@ -136,7 +137,6 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -151,8 +151,9 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="SecurityValidation.aspx" />
     <Content Include="package.json" />
-    <Content Include="SASS\style.scss" />
     <Content Include="App_Themes\Blue\Blue.skin" />
+    <Content Include="Theme.aspx" />
+    <None Include="Properties\PublishProfiles\PL20200729203038 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -195,6 +196,13 @@
       <DependentUpon>Activation.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Catalogue.aspx.cs">
+      <DependentUpon>Catalogue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogue.aspx.designer.cs">
+      <DependentUpon>Catalogue.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Email.aspx.cs">
       <DependentUpon>Email.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -254,10 +262,16 @@
     <Compile Include="SecurityValidation.aspx.designer.cs">
       <DependentUpon>SecurityValidation.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Theme.aspx.cs">
+      <DependentUpon>Theme.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Theme.aspx.designer.cs">
+      <DependentUpon>Theme.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Catalogues\Food\" />
     <Folder Include="Content\Catalogues\Plants\" />
   </ItemGroup>
   <ItemGroup>
