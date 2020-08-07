@@ -1,46 +1,38 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL
 {
     public class User
     {
-        private String firstName, lastName, lastName2, email, country, username, password;
-        int age, passwordAge;
-        String code;
-        DateTime passwordLastSet;
-        bool active;
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string LastName2 { get; set; }
+        public string Email { get; set; }
+        public string Country { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public int Age { get; set; }
+        public int PasswordAge { get; set; }
+        public int UserID { get; set; }
+        public DateTime PasswordLastSet { get; set; }
+        public bool Active { get; set; }
+        public string Code { get; set; }
 
-        public User(string firstName, string lastName, string lastName2, string email, string country, string username, string password, int age, int passwordAge, DateTime passwordLastSet, bool active, String code)
+        public void generateCode(ref User user)
         {
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.lastName2 = lastName2;
-            this.email = email;
-            this.country = country;
-            this.username = username;
-            this.password = password;
-            this.age = age;
-            this.passwordAge = passwordAge;
-            this.passwordLastSet = passwordLastSet;
-            this.active = active;
-            this.code = code;
-        }
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            var stringChars = new char[10];
+            var random = new Random();
 
-        public string FirstName { get => firstName; set => firstName = value; }
-        public string LastName { get => lastName; set => lastName = value; }
-        public string LastName2 { get => lastName2; set => lastName2 = value; }
-        public string Email { get => email; set => email = value; }
-        public string Country { get => country; set => country = value; }
-        public string Username { get => username; set => username = value; }
-        public string Password { get => password; set => password = value; }
-        public int Age { get => age; set => age = value; }
-        public int PasswordAge { get => passwordAge; set => passwordAge = value; }
-        public DateTime PasswordLastSet { get => passwordLastSet; set => passwordLastSet = value; }
-        public bool Active { get => active; set => active = value; }
-        public string Code { get => code; set => code = value; }
+            for (int i = 0; i < stringChars.Length; i++)
+            {
+                stringChars[i] = chars[random.Next(chars.Length)];
+            }
+
+            var finalString = new String(stringChars);
+            user.Code = finalString;
+        }
     }
+
+    
 }
