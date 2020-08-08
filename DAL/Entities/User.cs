@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DAL
+namespace DAL.Entities
 {
     public class User
     {
@@ -13,12 +13,12 @@ namespace DAL
         public string Password { get; set; }
         public int Age { get; set; }
         public int PasswordAge { get; set; }
-        public int UserID { get; set; }
+        public int UserId { get; set; }
         public DateTime PasswordLastSet { get; set; }
         public bool Active { get; set; }
         public string Code { get; set; }
 
-        public void generateCode(ref User user)
+        public void GenerateCode(User user)
         {
             var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
             var stringChars = new char[10];

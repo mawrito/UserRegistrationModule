@@ -129,6 +129,7 @@
     <Content Include="Content\Pulse.css" />
     <Content Include="Content\United.css" />
     <Content Include="Email.aspx" />
+    <Content Include="Scripts\securityValidator.js" />
     <Content Include="Scripts\styleswitcher.js" />
     <Content Include="Scripts\validator.js" />
     <Content Include="UserRegistration.aspx" />

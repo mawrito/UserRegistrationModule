@@ -13,9 +13,7 @@ namespace DAL
     public class ActivationEmail
     {
 
-        
-
-        public void SendActivationEmail(ref User user, String html)
+        public void SendActivationEmail(User user, String html)
         {
             MailMessage mm = new MailMessage("mariochavessolano@gmail.com", user.Email);
                             
@@ -35,22 +33,21 @@ namespace DAL
             smtp.Port = 587;
             smtp.Send(mm);
 
-            InsertActivation(ref user);
+            InsertActivation(user);
         }
 
-        public void InsertActivation(ref User user)
+        public void InsertActivation(User user)
         {
             string constr = "Data Source=localhost;Initial Catalog=UserRegistration;Integrated Security=True";
 
             string activationCode = user.Code;
 
             SqlConnection con = new SqlConnection(constr);
-            SqlCommand cmd = new SqlCommand("INSERT INTO UserActivation VALUES(@UserId, @ActivationCode)");
+            SqlCommand cmd = new SqlCommand("INSERT INTO UserActivation VALUES(@ActivationCode)");
 
             SqlDataAdapter sda = new SqlDataAdapter();
 
             cmd.CommandType = CommandType.Text;
-            cmd.Parameters.AddWithValue("@UserId", user.UserID);
             cmd.Parameters.AddWithValue("@ActivationCode", user.Code);
             cmd.Connection = con;
             con.Open();

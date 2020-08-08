@@ -26,7 +26,7 @@
         <asp:Label class="col-sm-2 col-form-label" Text="Age" runat="server" />
         <asp:TextBox class="form-control" ID="txtAge" onkeypress="return isNumber(event)" runat="server" />
         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtAge" ErrorMessage="Field Required" Font-Bold="True" Font-Italic="True" Font-Size="Smaller" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
-        <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtAge" ErrorMessage="Age must be between 18 and 99" MaximumValue="99" MinimumValue="18" Font-Bold="True" Font-Italic="True" Font-Size="Smaller" Display="Dynamic"></asp:RangeValidator>
+        <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtAge" ErrorMessage="Age must be between 18 and 99" MaximumValue="99" MinimumValue="18" Font-Bold="True" Font-Italic="True" Font-Size="Smaller"  ForeColor="Red" Display="Dynamic"></asp:RangeValidator>
         <br />
         <asp:Label class="col-sm-2 col-form-label" Text="Country" runat="server" />
         <asp:DropDownList class="form-control" ID="ddlCountry" runat="server" DataSourceID="Countries" DataTextField="CountryName" DataValueField="CountryName"></asp:DropDownList>

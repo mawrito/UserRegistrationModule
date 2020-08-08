@@ -5,86 +5,112 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DAL.DB;
+using DAL.Entities;
 
 namespace BLL
 {
-    public class accessDB
+    public class AccessDb
     {
         public static int AddUser(User user)
         {
             try
             {
-                SqlLine line = new SqlLine();
-                line.Request = @"EXEC Insert_User VALUES (@FirstName, @LastName, @LastName2, @Email, @Age, @Country, @Username, @Password, @PasswordAge, @PasswordLastSet, 0, @Code)";
+                var line = new SqlLine
+                {
+                    Request = @"EXEC Insert_User VALUES (@FirstName, @LastName, @LastName2, @Email, @Age, @Country, @Username, @Password, @PasswordAge, @PasswordLastSet, 0, @Code)"
+                };
 
-                SqlParameter parFirstName = new SqlParameter();
-                parFirstName.SqlDbType = System.Data.SqlDbType.VarChar;
-                parFirstName.ParameterName = "@FirstName";
-                parFirstName.Value = user.FirstName;
+                var parFirstName = new SqlParameter
+                {
+                    SqlDbType = System.Data.SqlDbType.VarChar,
+                    ParameterName = "@FirstName",
+                    Value = user.FirstName
+                };
                 line.ParList.Add(parFirstName);
 
-                SqlParameter parLastName = new SqlParameter();
-                parLastName.SqlDbType = System.Data.SqlDbType.VarChar;
-                parLastName.ParameterName = "@LastName";
-                parLastName.Value = user.LastName;
+                var parLastName = new SqlParameter
+                {
+                    SqlDbType = System.Data.SqlDbType.VarChar,
+                    ParameterName = "@LastName",
+                    Value = user.LastName
+                };
                 line.ParList.Add(parLastName);
 
-                SqlParameter parLastName2 = new SqlParameter();
-                parLastName2.SqlDbType = System.Data.SqlDbType.VarChar;
-                parLastName2.ParameterName = "@LastName2";
-                parLastName2.Value = user.LastName2;
+                var parLastName2 = new SqlParameter
+                {
+                    SqlDbType = System.Data.SqlDbType.VarChar,
+                    ParameterName = "@LastName2",
+                    Value = user.LastName2
+                };
                 line.ParList.Add(parLastName2);
 
-                SqlParameter parEmail = new SqlParameter();
-                parEmail.SqlDbType = System.Data.SqlDbType.VarChar;
-                parEmail.ParameterName = "@Email";
-                parEmail.Value = user.Email;
+                var parEmail = new SqlParameter
+                {
+                    SqlDbType = System.Data.SqlDbType.VarChar,
+                    ParameterName = "@Email",
+                    Value = user.Email
+                };
                 line.ParList.Add(parEmail);
 
-                SqlParameter parCountry = new SqlParameter();
-                parCountry.SqlDbType = System.Data.SqlDbType.VarChar;
-                parCountry.ParameterName = "@Country";
-                parCountry.Value = user.Country;
+                var parCountry = new SqlParameter
+                {
+                    SqlDbType = System.Data.SqlDbType.VarChar,
+                    ParameterName = "@Country",
+                    Value = user.Country
+                };
                 line.ParList.Add(parCountry);
 
-                SqlParameter parUsername = new SqlParameter();
-                parUsername.SqlDbType = System.Data.SqlDbType.VarChar;
-                parUsername.ParameterName = "@Username";
-                parUsername.Value = user.Username;
+                var parUsername = new SqlParameter
+                {
+                    SqlDbType = System.Data.SqlDbType.VarChar,
+                    ParameterName = "@Username",
+                    Value = user.Username
+                };
                 line.ParList.Add(parUsername);
 
-                SqlParameter parPassword = new SqlParameter();
-                parPassword.SqlDbType = System.Data.SqlDbType.VarChar;
-                parPassword.ParameterName = "@Password";
-                parPassword.Value = user.Password;
+                var parPassword = new SqlParameter
+                {
+                    SqlDbType = System.Data.SqlDbType.VarChar,
+                    ParameterName = "@Password",
+                    Value = user.Password
+                };
                 line.ParList.Add(parPassword);
 
-                SqlParameter parAge = new SqlParameter();
-                parAge.SqlDbType = System.Data.SqlDbType.Int;
-                parAge.ParameterName = "@Age";
-                parAge.Value = user.Age;
+                var parAge = new SqlParameter
+                {
+                    SqlDbType = System.Data.SqlDbType.Int,
+                    ParameterName = "@Age",
+                    Value = user.Age
+                };
                 line.ParList.Add(parAge);
 
-                SqlParameter parPasswordAge = new SqlParameter();
-                parPasswordAge.SqlDbType = System.Data.SqlDbType.Int;
-                parPasswordAge.ParameterName = "@PasswordAge";
-                parPasswordAge.Value = user.PasswordAge;
+                var parPasswordAge = new SqlParameter
+                {
+                    SqlDbType = System.Data.SqlDbType.Int,
+                    ParameterName = "@PasswordAge",
+                    Value = user.PasswordAge
+                };
                 line.ParList.Add(parPasswordAge);
 
-                SqlParameter parPasswordLastSet = new SqlParameter();
-                parPasswordLastSet.SqlDbType = System.Data.SqlDbType.DateTime;
-                parPasswordLastSet.ParameterName = "@PasswordLastSet";
-                parPasswordLastSet.Value = user.PasswordLastSet;
+                var parPasswordLastSet = new SqlParameter
+                {
+                    SqlDbType = System.Data.SqlDbType.DateTime,
+                    ParameterName = "@PasswordLastSet",
+                    Value = user.PasswordLastSet
+                };
                 line.ParList.Add(parPasswordLastSet);
 
-                SqlParameter parCode = new SqlParameter();
-                parCode.SqlDbType = System.Data.SqlDbType.VarChar;
-                parCode.ParameterName = "@Code";
-                parCode.Value = user.Code;
+                var parCode = new SqlParameter
+                {
+                    SqlDbType = System.Data.SqlDbType.VarChar,
+                    ParameterName = "@Code",
+                    Value = user.Code
+                };
                 line.ParList.Add(parCode);
 
-                DataAccess objacceso = new DataAccess();
-                return objacceso.RunStatementScalar(line);
+                var delivery = new DataAccess();
+                return delivery.RunStatementScalar(line);
             }
             catch (Exception ex)
             {
@@ -92,5 +118,31 @@ namespace BLL
             }
         }
 
+        public static bool AddActivation(User user)
+        {
+            try
+            {
+                var line = new SqlLine
+                {
+                    Request = @"INSERT INTO UserActivation VALUES(@ActivationCode)"
+                };
+
+                var parCode = new SqlParameter
+                {
+                    SqlDbType = System.Data.SqlDbType.VarChar,
+                    ParameterName = "@ActivationCode",
+                    Value = user.Code
+                };
+                line.ParList.Add(parCode);
+
+
+                var delivery = new DataAccess();
+                return delivery.RunStatement(line);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
